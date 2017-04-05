@@ -1,6 +1,6 @@
 User.destroy_all
-Seller.destroy_all
-Buyer.destroy_all
+Employer.destroy_all
+JobSeeker.destroy_all
 
 user1 = User.create!(
   email: 'roggers@mail.com',
@@ -20,7 +20,7 @@ user2 = User.create!(
   location: 'Culemborg'
 )
 
-Seller.create!(user: user1)
-Buyer.create!(user: user2)
+Employer.create!(user: user1)
+JobSeeker.create!(user: user2)
 
-puts "#{Seller.count} sellers and #{Buyer.count} sellers generated."
+puts "#{Employer.count} employers and #{JobSeeker.count} employers generated."

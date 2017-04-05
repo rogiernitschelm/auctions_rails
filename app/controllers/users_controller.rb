@@ -1,18 +1,19 @@
 class UsersController < ApplicationController
   include SessionHelpers
+  before_action :assert_no_session, only: :create_user
+
   load_and_authorize_resource
 
   def create_user
-    render json: @user
+    @user = User.new(user_params)
   end
 
-  def update
-    render json: @user
+  def update_user
   end
 
   protected
 
-  def permitted_params
+  def user_params
     raise('You are trying something you should not.') if params[:is_admin]
 
     {

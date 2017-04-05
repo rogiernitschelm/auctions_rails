@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
-  has_one :seller
-  has_one :buyer
+  has_one :employer, dependent: :destroy
+  has_one :job_seeker, dependent: :destroy
 
   validates_length_of :first_name, minimum: 2, maximum: 30, allow_blank: false
   validates_length_of :last_name, minimum: 2, maximum: 30, allow_blank: false
@@ -18,12 +18,12 @@ class User < ApplicationRecord
     admin
   end
 
-  def seller?
-    seller
+  def employer?
+    employer
   end
 
-  def buyer?
-    buyer
+  def job_seeker?
+    job_seeker
   end
 
   private

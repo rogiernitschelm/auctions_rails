@@ -15,18 +15,23 @@ ActiveRecord::Schema.define(version: 20170320221719) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "buyers", force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_buyers_on_user_id", using: :btree
+  create_table "employers", force: :cascade do |t|
+    t.integer  "user_id",                           null: false
+    t.string   "company_name",                      null: false
+    t.string   "company_location",                  null: false
+    t.string   "company_business",                  null: false
+    t.string   "chamber_of_commerce",               null: false
+    t.string   "recruitment_agency",  default: "f", null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.index ["user_id"], name: "index_employers_on_user_id", using: :btree
   end
 
-  create_table "sellers", force: :cascade do |t|
+  create_table "job_seekers", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_sellers_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_job_seekers_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
