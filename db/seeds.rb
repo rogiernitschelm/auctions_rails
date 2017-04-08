@@ -20,7 +20,15 @@ user2 = User.create!(
   location: 'Culemborg'
 )
 
-Employer.create!(user: user1)
-JobSeeker.create!(user: user2)
+Employer.create!(
+  user: user1,
+  chamber_of_commerce: '1234abcd',
+  company_name: 'Hoogle',
+  company_location: 'Silicon Valley',
+  company_business: 'Searches \'n stuff',
+  recruitment_agency: false
+)
+
+# JobSeeker.create!(user: user2)
 
 puts "#{Employer.count} employers and #{JobSeeker.count} employers generated."

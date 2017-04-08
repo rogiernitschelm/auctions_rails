@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 20170320221719) do
   enable_extension "plpgsql"
 
   create_table "employers", force: :cascade do |t|
-    t.integer  "user_id",                           null: false
-    t.string   "company_name",                      null: false
-    t.string   "company_location",                  null: false
-    t.string   "company_business",                  null: false
-    t.string   "chamber_of_commerce",               null: false
-    t.string   "recruitment_agency",  default: "f", null: false
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.integer  "user_id",                             null: false
+    t.string   "company_name",                        null: false
+    t.string   "company_location",                    null: false
+    t.string   "company_business",                    null: false
+    t.string   "chamber_of_commerce",                 null: false
+    t.boolean  "recruitment_agency",  default: false, null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.index ["user_id"], name: "index_employers_on_user_id", using: :btree
   end
 

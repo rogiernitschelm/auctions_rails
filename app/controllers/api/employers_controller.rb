@@ -20,6 +20,7 @@ class Api::EmployersController < UsersController
   end
 
   def update
+    @employer.update_attributes!(employer_params)
     render json: @employer
   end
 
@@ -32,7 +33,7 @@ class Api::EmployersController < UsersController
   private
 
   def employer_params
-    params.require(:employer).permit(
+    params.permit(
       :chamber_of_commerce,
       :company_name,
       :company_location,
